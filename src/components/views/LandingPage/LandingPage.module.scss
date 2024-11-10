@@ -1,0 +1,243 @@
+.landingPage {
+  // padding-top: 40px;
+  &__carousel {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    &__list {
+      &__item {
+        width: 180px;
+        height: 250px;
+        position: absolute;
+        top: 80%;
+        transform: translateY(-70%);
+        left: 70%;
+        border-radius: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        background-position: 50% 50%;
+        background-size: cover;
+        z-index: 100;
+        transition: 1s;
+
+        &:nth-child(1),
+        &:nth-child(2) {
+          top: 0;
+          left: 0;
+          transform: translate(0, 0);
+          border-radius: 0;
+          width: 100%;
+          height: 100%;
+        }
+
+        &:nth-child(3) {
+          left: 67%;
+        }
+
+        &:nth-child(4) {
+          left: calc(67% + 200px);
+        }
+
+        &:nth-child(5) {
+          left: calc(67% + 400px);
+        }
+
+        &:nth-child(6) {
+          left: calc(67% + 600px);
+        }
+
+        &:nth-child(n + 7) {
+          left: calc(67% + 800px);
+          opacity: 0;
+        }
+
+        &__content {
+          position: absolute;
+          top: 50%;
+          left: 100px;
+          transform: translateY(-50%);
+          width: 400px;
+          text-align: left;
+          color: #fff;
+          display: none;
+
+          &__title {
+            font-size: 100px;
+            text-transform: uppercase;
+            color: #000;
+            font-weight: bold;
+            line-height: 1;
+            opacity: 0;
+            animation: animate 1s ease-in-out 0.3s 1 forwards;
+          }
+
+          &__name {
+            font-size: 100px;
+            text-transform: uppercase;
+            font-weight: bold;
+            line-height: 1;
+            text-shadow: 3px 4px 4px rgba(255, 255, 255, 0.8);
+
+            opacity: 0;
+            animation: animate 1s ease-in-out 0.6s 1 forwards;
+          }
+
+          &__desc {
+            margin-top: 10px;
+            margin-bottom: 20px;
+            font-size: 18px;
+            margin-left: 5px;
+
+            opacity: 0;
+            animation: animate 1s ease-in-out 0.9s 1 forwards;
+          }
+
+          &__btn {
+            margin-left: 20px;
+
+            opacity: 0;
+            animation: animate 1s ease-in-out 1.2s 1 forwards;
+            button {
+              padding: 10px 20px;
+              border: none;
+              cursor: pointer;
+              font-size: 16px;
+              border: 2px solid #fff;
+              border-radius: 20px;
+              &:nth-child(1) {
+                margin-right: 15px;
+              }
+              &:nth-child(2) {
+                background: transparent;
+                margin-right: 10px;
+                color: #fff;
+                border: 2px solid #fff;
+                transition: 0.3s;
+              }
+              &:nth-child(2):hover {
+                color: #fff;
+                border-color: #000;
+                transition: 0.3s;
+                background-color: #000;
+              }
+            }
+
+            @keyframes animate {
+              from {
+                opacity: 0;
+                transform: translate(0, 100px);
+
+                filter: blur(33px);
+              }
+
+              to {
+                opacity: 1;
+                transform: translate(0);
+                filter: blur(0);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__arrows {
+      position: absolute;
+      top: 87%;
+      right: 52%;
+      z-index: 100;
+      width: 300px;
+      max-width: 30%;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      button {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #42f01c;
+        color: #fff;
+        border: none;
+        outline: none;
+        font-size: 25px;
+        font-family: monospace;
+        font-weight: bold;
+        transition: 0.5s;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #fff;
+        color: #000;
+      }
+    }
+
+    &__timeRunning {
+      position: absolute;
+      z-index: 1000;
+      width: 0%;
+      height: 4px;
+      background-color: #000;
+      left: 0;
+      top: 0;
+      animation: runningTime 7s linear 1 forwards;
+    }
+
+    @keyframes runningTime {
+      from {
+        width: 0%;
+      }
+      to {
+        width: 100%;
+      }
+    }
+
+    @media screen and (max-width: 999px) {
+      &__list {
+        &__item {
+          &__content {
+            left: 50px;
+            &__title,
+            &__name {
+              font-size: 70px;
+            }
+
+            &__desc {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: 690px) {
+      &__list {
+        &__item {
+          &__content {
+            top: 40%;
+            &__title,
+            &__name {
+              font-size: 45px;
+            }
+
+            &__desc {
+              font-size: 16px;
+            }
+
+            &__btn {
+              button {
+                padding: 10px 15px;
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__carousel__list__item:nth-child(2)
+    .landingPage__carousel__list__item__content {
+    display: block;
+  }
+}

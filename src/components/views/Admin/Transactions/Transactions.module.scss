@@ -1,0 +1,30 @@
+.transaction {
+  &__main {
+    &__table {
+      width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-top: 20px;
+      th,
+      td {
+        text-align: center;
+        padding: 8px;
+        i {
+          font-size: 24px;
+          margin-right: 5px;
+          font-weight: bold;
+        }
+      }
+      thead {
+        tr {
+          background-color: #626161;
+          color: #fff;
+        }
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+    }
+  }
+}
